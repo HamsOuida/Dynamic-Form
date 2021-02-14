@@ -1,0 +1,37 @@
+.content{
+    overflow: hidden !important;
+    padding-top: 20px;
+    width: 95%;
+}
+.text-container{
+    margin-top: 20px;
+    width: 80%;
+}
+.input-label{
+    margin-left: 5px;
+    width: 150px;
+}
+.checkbox-layout{
+    margin-left: 20px;
+    margin-bottom: -15px !important;
+}
+.error-msg{
+    color: red;
+    font-size: 14px;
+}
+.btn{
+    margin-top: 10px;
+}
+.form-grid{
+    margin: 0 auto 0 auto
+}
+.mt-2{
+    margin-top: 2em;
+}
+.buttons-container{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+    align-items: center;
+}

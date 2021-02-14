@@ -1,0 +1,37 @@
+<div class="row content">
+  <div class="col-6 text-center">
+    <h2>Paste Your json object</h2>
+    <textarea rows="12" [(ngModel)]="jsonObject" class="text-container"></textarea>
+    <p *ngIf="showJsonError" class="error-msg"> Please insert correct data</p>
+    <div class="text-center">
+      <button (click)="showText()" type="button" class="btn btn-primary">Show Form</button>
+    </div>
+  </div>
+  <div class="col-5 form-grid" *ngIf="show">
+    <h2 class="mt-2 text-center">Dynamic Form</h2>
+    <form [formGroup]="form">
+      <div class="form-group" *ngFor="let input of allInputs">
+        <label class="input-label" *ngIf="input.type != 'checkbox'" [attr.for]="input.key">{{input.key}}</label>
+        <input *ngIf="input.type == 'text' || input.type == 'number'" [(ngModel)]="input.value"
+          [formControlName]="input.key" class="form-control" [id]="input.key" [type]="input.type">
+        <select [id]="input.key" *ngIf="input.type == 'dropdown'" class="form-control">
+          <option *ngFor="let opt of dropdownItems" [value]="opt">{{opt}}</option>
+        </select>
+        <div class="checkbox-layout" *ngIf="input.type == 'checkbox'">
+          <input type="checkbox" class="form-check-input" [(ngModel)]="input.value" [formControlName]="input.key">
+          <label class="input-label" [attr.for]="input.key">{{input.key}}</label>
+        </div>
+        <div *ngIf="input.type == 'date'">
+          <input class="form-control" type="date" [formControlName]="input.key" value="input.value"
+            id="example-date-input">
+        </div>
+
+      </div>
+      <div class="buttons-container">
+        <button (click)="cancelForm()" type="button" class="btn btn-light">Cancel</button>
+        <button (click)="saveForm()" type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+  </div>
+</div>
